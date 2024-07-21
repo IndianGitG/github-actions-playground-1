@@ -11,5 +11,4 @@ jobs:
     uses: "IndianGitG/github-actions-reusable-workflow-playground/.github/workflows/reusable_workflow.yml@main"
     with:
       message: "Hello from Repo 2!"
-    secrets:
       token: ${{ secrets.REPO_ACCESS_TOKEN }}
