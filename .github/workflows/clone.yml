@@ -1,0 +1,21 @@
+name: Clone Private Repository
+
+on:
+  workflow_dispatch:  # Allows you to manually trigger the workflow from GitHub UI
+
+jobs:
+  clone-repo:
+    runs-on: ubuntu-latest  # Specifies the runner environment
+
+    steps:
+      - name: Checkout private repository
+        uses: actions/checkout@v2
+        with:
+          repository: 'IndianGitG/github-actions-reusable-workflow-playground'  # Specify your repository
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}  # Use the stored token with the necessary permissions
+          path: 'cloned-repo'  # Optional: Sets the path to clone the repo into
+
+      - name: Verify Repository Contents
+        run: |
+          echo "Listing contents of the cloned repository:"
+          ls -alh cloned-repo/
