@@ -8,7 +8,9 @@ on:
 
 jobs:
   call_reusable_workflow:
+    secrets:
+      token: ${{ secrets.REPO_ACCESS_TOKEN }}
     uses: "IndianGitG/github-actions-reusable-workflow-playground/.github/workflows/reusable_workflow.yml@main"
     with:
       message: "Hello from Repo 2!"
-      token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
